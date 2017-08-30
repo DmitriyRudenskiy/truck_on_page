@@ -1,0 +1,63 @@
+<!-- product -->
+<div class="container content" ng-controller="ViewController">
+    <div class="row" style="padding-bottom: 5px">
+        <div class="col-md-12">
+            <a href="/products" class="btn btn-link">Назад к списку</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>{{ element.title }}</h2>
+        </div>
+
+        <div class="col-md-4">
+            <h2 class="text-success">{{ element.price | format_price}} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></h2>
+        </div>
+    </div>
+
+    <div class="row" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc">
+        <div class="col-md-8">
+            <h5>Продавец: Аторги</h5>
+            <h5>Автомобиль в наличии</h5>
+        </div>
+
+        <div class="col-md-4" ng-hide="isPhone" ng-click="showPhone()">
+            <button type="button" class="btn btn-lg" style="width: 100%; height: 100px; background: #5b0; border-radius: 0; color: #fff">Показать телефон<br>+7 XXX XXX-XX-XX</button>
+        </div>
+
+        <div class="col-md-4 text-center" ng-hide="!isPhone" style="padding-top: 22px; padding-bottom: 12px; font-size: 24px; line-height: 1">
+            <p>8 800 555-5998</p>
+            <p>+7 (916) 234-3326</p>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 24px">
+        <div class="col-md-4">
+            <dl class="dl-horizontal" ng-repeat="item in element.params">
+                <dt>{{item.label}}</dt>
+                <dd>{{item.value}}</dd>
+            </dl>
+        </div>
+        <div class="col-md-8">
+            <div class="thumbnail" style="border: 0">
+                <img ng-src="{{thumbnail}}">
+            </div>
+
+            <div class="row">
+                <div class="col-md-3"  ng-repeat="item in element.images">
+                        <span class="thumbnail" ng-click="image(item)" style="cursor: pointer">
+                            <img ng-src="{{item}}" alt="...">
+                        </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Комментарий</h3>
+                    <div ng-bind-html="element.details | marker2br"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p>Мы гарантируем наличие автомобилей в  представленном списке. Также наша компания, как официальный дилер может изготовить для вас любую кузовную надстройку. При продаже автомобиля мы не отправляем нашего клиента самостоятельно решать вопросы лизинга. У нас заключены договора со всеми ведущими лизинговыми компаниями со ставками существенно ниже рыночных. Мы имеем собственных лизинговых специалистов в штате, это позволяет нам предоставлять до 10 расчетов от разных лизинговых компаний в течении 30 минут. </p>
+        </div>
+    </div>
+</div>
+
+<!-- list -->
+<div class="container content" ng-controller="IndexController">
+    <div class="row item_in_list" ng-repeat="(index, item) in items" ng-click="view(index)">
+        <div class="col-md-4">
+            <img class="full_image" ng-src="{{item.images[0]}}">
+        </div>
+        <div class="col-md-8">
+            <h3>{{ item.title }}</h3>
+            <p style="font-size: 24px">Цена: <strong>{{ item.price | format_price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></strong></p>
+            <p>Год выпуска: 2017</p>
+            <p>НОВЫЙ</p>
+            <a href="" class="btn btn-lg" style="width: 250px; background: #5b0; color: #fff;" >СМОТРЕТЬ</a>
+        </div>
+    </div>
+</div>
