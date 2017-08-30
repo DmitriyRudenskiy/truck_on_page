@@ -6,3 +6,5 @@ img/002
 img/003
 .DS_Store
 data.json
+views/menu.html
+views/breadcrumb.html

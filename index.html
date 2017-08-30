@@ -49,10 +49,8 @@
             </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://hino-300.ru">Hino 300</a></li>
-                <li><a href="http://iveko-daily.ru">Iveco Daily</a></li>
+                <li ng-repeat="item in params.menu"><a href="{{item.url}}" target="_blank" style="cursor: pointer">{{item.title}}</a></li>
             </ul>
         </div>
     </div>
@@ -63,9 +61,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb">
-                    <li><a href="http://respectonline.ru">Грузовики</a></li>
-                    <li><a href="/">Hyundai</a></li>
-                    <li class="active">HD78</li>
+                    <li ng-repeat="item in params.breadcrumb"><a href="{{item.url}}" target="_blank" style="cursor: pointer">{{item.title}}</a></li>
                 </ol>
             </div>
         </div>

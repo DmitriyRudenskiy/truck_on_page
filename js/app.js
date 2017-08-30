@@ -3,7 +3,7 @@
 
     var app = angular.module("TruckShop", ["ngRoute"]);
 
-// config
+    // config
     app.config(["$routeProvider", function ($routeProvider) {
         $routeProvider
             .when("/products", {
@@ -19,7 +19,16 @@
             });
     }]);
 
-// filters
+    // global vars
+    app.run(function($rootScope, $http) {
+        $http.get('/params.json').then(function(response) {
+            $rootScope.params = response.data;
+
+            console.log($rootScope.params);
+        });
+    });
+
+    // filters
     app.filter("marker2br", [
         "$sce",
         function ($sce) {
@@ -45,7 +54,7 @@
         };
     });
 
-// data
+    // data
     app.factory("dataService", function ($http) {
         return {
             async: function () {

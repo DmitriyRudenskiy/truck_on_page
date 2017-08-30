@@ -1,0 +1,26 @@
+{
+  "menu": [
+    {
+      "url": "http://hino-300.ru",
+      "title": "Hino 300"
+    },
+    {
+      "url": "http://iveko-daily.ru",
+      "title": "Iveco Daily"
+    }
+  ],
+  "breadcrumb": [
+    {
+      "url": "http://respectonline.ru",
+      "title": "Грузовики"
+    },
+    {
+      "url": "/",
+      "title": "Hyundai"
+    },
+    {
+      "url": "",
+      "title": "HD78"
+    }
+  ]
+}
