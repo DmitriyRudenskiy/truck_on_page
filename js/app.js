@@ -12,7 +12,7 @@
             })
             .when("/products/view/:productId", {
                 controller: "ViewController",
-                templateUrl: "/views/second.html"
+                templateUrl: "/views/view.html"
             })
             .otherwise({
                 redirectTo: "/products"
@@ -74,7 +74,6 @@
             $scope.element = response.data[productId];
         });
 
-
         $scope.image = function (image) {
             $scope.thumbnail = image;
         };
@@ -84,7 +83,7 @@
         };
 
         $timeout(function () {
-            console.log($scope.element);
-        }, 2000);
+            $scope.thumbnail = $scope.element.images[0];
+        }, 500);
     });
 })();
