@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module("TruckShop", ["ngRoute"]);
+    var app = angular.module("TruckShop", ["ngRoute", "angularLazyImg"]);
 
     // config
     app.config(["$routeProvider", function ($routeProvider) {

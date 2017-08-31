@@ -10,8 +10,8 @@
 <div class="container content" ng-controller="IndexController">
     <div class="row item_in_list" ng-repeat="(index, item) in items">
         <div class="col-md-4">
-            <a href="/#/products/view/{{index}}" target="_blank">
-                <img class="full_image" ng-src="{{item.images[0]}}">
+            <a href="/#/products/view/{{index}}" target="_blank" style="display: block; min-width: 210px; min-height: 200px; background: url('/img/load.gif') no-repeat center; text-align: center">
+                <img class="full_image" src="" lazy-img="{{item.images[0]}}" >
             </a>
         </div>
         <div class="col-md-8">
