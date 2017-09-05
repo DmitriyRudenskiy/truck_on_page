@@ -1,0 +1,32 @@
+<!-- product -->
+<div class="container content" ng-controller="ViewController">
+    <div class="row" style="padding-bottom: 5px">
+        <div class="col-md-12">
+            <h1>Cтоимость автомобиля: {{ price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></strong></h1>
+
+            Срок лизинга
+            <p>
+                <select class="form-control" ng-model="perion">
+                    <option>12мес</option>
+                    <option>24мес</option>
+                    <option>36 мес</option>
+                    <option>48 мес</option>
+                    <option>60мес</option>
+                </select>
+            </p>
+
+            Первоначальный взнос
+
+            <p>
+                <select class="form-control" ng-model="money">
+                    <option>20%</option>
+                    <option>30%</option>
+                    <option>40%</option>
+                    <option>50%</option>
+                </select>
+            </p>
+
+            <a target="_self" href="/calc.xls" download="calc.xls" class="btn">Жми</a>
+        </div>
+    </div>
+</div>

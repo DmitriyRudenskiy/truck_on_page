@@ -14,6 +14,10 @@
                 controller: "ViewController",
                 templateUrl: "/views/view.html"
             })
+            .when("/leasing/:productId", {
+                controller: "LeasingController",
+                templateUrl: "/views/leasing.html"
+            })
             .otherwise({
                 redirectTo: "/products"
             });
@@ -23,8 +27,6 @@
     app.run(function($rootScope, $http) {
         $http.get('/params.json').then(function(response) {
             $rootScope.params = response.data;
-
-            console.log($rootScope.params);
         });
     });
 
@@ -75,12 +77,12 @@
     });
 
     app.controller("ViewController", function ($scope, $routeParams, $timeout, dataService) {
-        var productId = $routeParams.productId * 1;
+        $scope.productId = $routeParams.productId * 1;
 
         $scope.isPhone = false;
 
         dataService.async().then(function (response) {
-            $scope.element = response.data[productId];
+            $scope.element = response.data[$scope.productId];
         });
 
         $scope.image = function (image) {
@@ -93,6 +95,24 @@
 
         $timeout(function () {
             $scope.thumbnail = $scope.element.images[0];
+        }, 500);
+    });
+
+    app.controller("LeasingController", function ($scope, $routeParams, $timeout, dataService) {
+        var productId = $routeParams.productId * 1;
+
+        $scope.price = 0;
+
+
+        dataService.async().then(function (response) {
+            $scope.element = response.data[productId];
+        });
+
+
+        $timeout(function () {
+            $scope.price = $scope.element.price;
+
+            console.log([$scope.price, $scope.element.price]);
         }, 500);
     });
 })();
