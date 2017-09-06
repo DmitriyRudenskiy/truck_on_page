@@ -1,32 +1,165 @@
 <!-- product -->
-<div class="container content" ng-controller="ViewController">
-    <div class="row" style="padding-bottom: 5px">
-        <div class="col-md-12">
-            <h1>Cтоимость автомобиля: {{ price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></strong></h1>
+<div class="container content" ng-controller="LeasingController">
+    <div class="row">
 
-            Срок лизинга
-            <p>
-                <select class="form-control" ng-model="perion">
-                    <option>12мес</option>
-                    <option>24мес</option>
-                    <option>36 мес</option>
-                    <option>48 мес</option>
-                    <option>60мес</option>
-                </select>
+        <div class="col-md-4">
+            <p class="thumbnail">
+                <img ng-src="{{element.images[0]}}" alt="...">
             </p>
 
-            Первоначальный взнос
+            <h3 class="text-center">Стоимость авто: {{ price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></h3>
 
-            <p>
-                <select class="form-control" ng-model="money">
-                    <option>20%</option>
-                    <option>30%</option>
-                    <option>40%</option>
-                    <option>50%</option>
-                </select>
-            </p>
+            <div class="well text-center" style="border: 1px solid orange; color: orange; font-size: 12px">
+                <h3 style="color: orange">Ежемесячный платёж:</h3>
+                <h1 style="color: orange">{{getInMouth() | format_price}} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></h1>
+            </div>
+        </div>
 
-            <a target="_self" href="/calc.xls" download="calc.xls" class="btn">Жми</a>
+        <div class="col-md-4">
+            <h3 style="margin: 0; padding: 0">Срок лизинга</h3>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="period"  value="12" ng-model="period">
+                    12 месяцев (1 год)
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="period"  value="24" ng-model="period">
+                    24 месяца (2 года)
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="period"  value="36" ng-model="period">
+                    36 месяцев (3 года)
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="period"  value="48" ng-model="period">
+                    48 месяцев (4 года)
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="period"  value="60" ng-model="period">
+                    60 месяцев (5 лет)
+                </label>
+            </div>
+
+            <h3 style="margin: 0; padding: 0">Первоначальный взнос</h3>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="advance"  value="20" ng-model="advance">
+                    20%
+                </label>
+            </div>
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="advance"  value="30" ng-model="advance">
+                    30%
+                </label>
+            </div>
+
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="advance"  value="40" ng-model="advance">
+                    40%
+                </label>
+            </div>
+
+
+            <div class="radio">
+                <label>
+                    <input type="radio" name="advance"  value="50" ng-model="advance">
+                    50%
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- item -->
+    <div class="row row-leasing row-leasing-top" style="margin-top: 48px; border-top: 1px solid #ccc">
+        <div class="col-md-3">
+            <img src="/img/bank/logo_101.jpg" alt="" style="margin-top: 17px">
+        </div>
+
+        <div class="col-md-5 text-center" style="padding-top: 32px;">
+            <strong>{{ getInMouth() | format_price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span> в месяц</strong>
+        </div>
+
+        <div class="col-md-4" style="padding-right: 0">
+           <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
+        </div>
+    </div>
+
+    <!-- item -->
+    <div class="row row-leasing row-leasing-top">
+        <div class="col-md-3">
+            <img src="/img/bank/logo_102.jpg" alt="" style="margin-top: 20px">
+        </div>
+
+        <div class="col-md-5 text-center" style="padding-top: 32px;">
+            <strong>в файле</strong>
+        </div>
+
+        <div class="col-md-4" style="padding-right: 0">
+            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
+        </div>
+    </div>
+
+    <!-- item -->
+    <div class="row row-leasing row-leasing-top">
+        <div class="col-md-3">
+            <img src="/img/bank/logo_103.jpg" alt="" style="margin-top: 8px">
+        </div>
+
+        <div class="col-md-5 text-center" style="padding-top: 32px;">
+            <strong>в файле</strong>
+        </div>
+
+        <div class="col-md-4" style="padding-right: 0">
+            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
+        </div>
+    </div>
+
+    <!-- item -->
+    <div class="row row-leasing row-leasing-top">
+        <div class="col-md-3">
+            <img src="/img/bank/logo_104.jpg" alt="" style="margin-top: 10px">
+        </div>
+
+        <div class="col-md-5 text-center" style="padding-top: 32px;">
+            <strong>в файле</strong>
+        </div>
+
+        <div class="col-md-4" style="padding-right: 0">
+            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
+        </div>
+    </div>
+
+    <!-- item -->
+    <div class="row row-leasing row-leasing-top">
+        <div class="col-md-3">
+            <img src="/img/bank/logo_105.jpg" alt="" style="margin-top: 12px">
+        </div>
+
+        <div class="col-md-5 text-center" style="padding-top: 32px;">
+            <strong>в файле</strong>
+        </div>
+
+        <div class="col-md-4" style="padding-right: 0">
+            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
         </div>
     </div>
 </div>
+
+

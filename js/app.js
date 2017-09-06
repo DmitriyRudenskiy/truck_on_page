@@ -1,6 +1,12 @@
 (function () {
     'use strict';
 
+    function getInMouth(price, period, advance) {
+        var percent = 6.5;
+
+        return Math.floor((((price * (percent / 100)) * (period / 12) + price) -  (price / 100 * advance)) / period);
+    }
+
     var app = angular.module("TruckShop", ["ngRoute", "angularLazyImg"]);
 
     // config
@@ -24,7 +30,10 @@
     }]);
 
     // global vars
-    app.run(function($rootScope, $http) {
+    app.run(function($rootScope, $http, $location) {
+        $rootScope.url = $location.absUrl();
+
+
         $http.get('/params.json').then(function(response) {
             $rootScope.params = response.data;
         });
@@ -53,6 +62,20 @@
             }
 
             return "";
+        };
+    });
+
+    app.filter("in_month", function () {
+        return function (input) {
+            var price = input * 1;
+
+            if (price < 1) {
+                return 0;
+            }
+            var period = 60;
+            var advance = 50;
+
+            return getInMouth(price, period, advance);
         };
     });
 
@@ -102,7 +125,8 @@
         var productId = $routeParams.productId * 1;
 
         $scope.price = 0;
-
+        $scope.period = 60;
+        $scope.advance = 50;
 
         dataService.async().then(function (response) {
             $scope.element = response.data[productId];
@@ -111,8 +135,11 @@
 
         $timeout(function () {
             $scope.price = $scope.element.price;
-
-            console.log([$scope.price, $scope.element.price]);
         }, 500);
+
+
+        $scope.getInMouth = function (price, period, advance) {
+            return getInMouth($scope.price, $scope.period, $scope.advance);
+        };
     });
 })();

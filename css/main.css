@@ -36,3 +36,39 @@ h5 {
     padding-top: 10px;
     font-size: 18px;
 }
+
+.btn-green-big {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+    background: #5b0;
+    border-radius: 0;
+    padding-top: 24px;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-green-big:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.row-leasing-top {
+    border-top: 1px solid #ccc;
+}
+
+.row-leasing {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 24px;
+}
+
+.row-leasing div {
+    height: 100%;
+}
+
+.row-leasing strong {
+    color: #000;
+    font-size: 24px;
+}
