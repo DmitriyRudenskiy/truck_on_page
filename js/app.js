@@ -31,6 +31,8 @@
             .otherwise({
                 redirectTo: "/products"
             });
+
+        $locationProvider.html5Mode(true);
     }]);
 
     // global vars
