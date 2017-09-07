@@ -87,77 +87,18 @@
     </div>
 
     <!-- item -->
-    <div class="row row-leasing row-leasing-top" style="margin-top: 48px; border-top: 1px solid #ccc">
+    <div class="row row-leasing row-leasing-top" ng-repeat="(index, item) in banks">
         <div class="col-md-3">
-            <img src="/img/bank/logo_103.jpg" alt="" style="margin-top: 17px">
+            <img ng-src="{{item.image}}" alt="">
         </div>
 
         <div class="col-md-5 text-center" style="padding-top: 32px;">
-            <strong>{{ getInMouth() | format_price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span> в месяц</strong>
+            <strong ng-hide="!item.show">{{ getInMouth() | format_price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span> в месяц</strong>
+            <strong ng-hide="item.show">в файле</strong>
         </div>
 
         <div class="col-md-4" style="padding-right: 0">
-           <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
-        </div>
-    </div>
-
-    <!-- item -->
-    <div class="row row-leasing row-leasing-top">
-        <div class="col-md-3">
-            <img src="/img/bank/logo_102.jpg" alt="" style="margin-top: 20px">
-        </div>
-
-        <div class="col-md-5 text-center" style="padding-top: 32px;">
-            <strong>в файле</strong>
-        </div>
-
-        <div class="col-md-4" style="padding-right: 0">
-            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
-        </div>
-    </div>
-
-    <!-- item -->
-    <div class="row row-leasing row-leasing-top">
-        <div class="col-md-3">
-            <img src="/img/bank/logo_101.jpg" alt="" style="margin-top: 8px">
-        </div>
-
-        <div class="col-md-5 text-center" style="padding-top: 32px;">
-            <strong>в файле</strong>
-        </div>
-
-        <div class="col-md-4" style="padding-right: 0">
-            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
-        </div>
-    </div>
-
-    <!-- item -->
-    <div class="row row-leasing row-leasing-top">
-        <div class="col-md-3">
-            <img src="/img/bank/logo_104.jpg" alt="" style="margin-top: 10px">
-        </div>
-
-        <div class="col-md-5 text-center" style="padding-top: 32px;">
-            <strong>в файле</strong>
-        </div>
-
-        <div class="col-md-4" style="padding-right: 0">
-            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
-        </div>
-    </div>
-
-    <!-- item -->
-    <div class="row row-leasing row-leasing-top">
-        <div class="col-md-3">
-            <img src="/img/bank/logo_105.jpg" alt="" style="margin-top: 12px">
-        </div>
-
-        <div class="col-md-5 text-center" style="padding-top: 32px;">
-            <strong>в файле</strong>
-        </div>
-
-        <div class="col-md-4" style="padding-right: 0">
-            <span data-toggle="modal" data-target="#get_phone" class="btn-green-big">Получить расчет</span>
+            <a href="/invoice.html#/?productId={{productId}}&bankId={{index}}&period={{period}}&advance={{advance}}" class="btn-green-big">Скачать расчет</a>
         </div>
     </div>
 </div>
