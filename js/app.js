@@ -31,8 +31,6 @@
             .otherwise({
                 redirectTo: "/products"
             });
-
-        $locationProvider.html5Mode(true);
     }]);
 
     // global vars
@@ -55,7 +53,7 @@
             {
                 "title": "Siemens",
                 "image": "/img/bank/logo_101.jpg",
-                "precent": 8.5 ,
+                "precent": 8.5,
                 "show": false
             },
             {
