@@ -44,39 +44,33 @@
                 "title": "Сбербанк",
                 "image": "/img/bank/logo_103.jpg",
                 "precent": 6.5,
-                "show": true,
-                "top": 8
-            },
-            {
-                "title": "Европлан",
-                "image": "/img/bank/logo_102.jpg",
-                "precent": 8,
-                "show": false,
-                "top": 20
-            },
-            {
-                "title": "ВТБ",
-                "image": "/img/bank/logo_101.jpg",
-                "precent": 7,
-                "show": false,
-                "top": 17
+                "show": true
             },
             {
                 "title": "Балтийский лизинг",
-                "image": "/img/bank/logo_104.jpg",
+                "image": "/img/bank/logo_102.jpg",
                 "precent": 7.7,
-                "show": false,
-                "top": 10
+                "show": false
             },
             {
                 "title": "Siemens",
+                "image": "/img/bank/logo_101.jpg",
+                "precent": 8.5 ,
+                "show": false
+            },
+            {
+                "title": "Европлан",
+                "image": "/img/bank/logo_104.jpg",
+                "precent": 8,
+                "show": false
+            },
+            {
+                "title": "ВТБ",
                 "image": "/img/bank/logo_105.jpg",
-                "precent": 8.5,
-                "show": false,
-                "top": 12
+                "precent": 7,
+                "show": false
             }
         ];
-
 
         $http.get('/params.json').then(function(response) {
             $rootScope.params = response.data;
