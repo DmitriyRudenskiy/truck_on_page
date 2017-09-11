@@ -85,7 +85,7 @@
                     <p class="text-right"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></p>
 
                     <div>
-                        <h3>Быстрая помощь дилера</h3>
+                        <h5>Зарегистрируйтесь,<br>что бы скачать расчет</h5>
                         <form method="post" action="http://respectonline.ru/form">
                             <input type="hidden" name="message" value="{{url}}">
                             <div class="form-group text-left">
@@ -96,10 +96,18 @@
                                 <label class="text-left">Телефон:</label>
                                 <input type="text" name="phone" class="form-control" placeholder="+7 (999) 999-99-99" required>
                             </div>
-                            <button type="submit" class="btn btn-warning">Позвонить мне быстро</button>
+                            <div class="form-group text-left">
+                                <label class="text-left">Пароль:</label>
+                                <input type="password" class="form-control" required>
+                            </div>
+                            <div class="form-group text-left">
+                                <label class="text-left">Повторите пароль:</label>
+                                <input type="password" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-warning">Зарегестрироваться и скачать</button>
                         </form>
 
-                        <p style="padding-top: 24px; font-size: 80%">Ваши контактные данные в безопасности<br>и не будут переданы третьим лицам</p>
+                        <p style="padding-top: 24px; font-size: 80%">На номер телефона придет код подтверждения регистрации</p>
                     </div>
                 </div>
             </div>
