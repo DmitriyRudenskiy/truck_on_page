@@ -154,6 +154,7 @@
 
     app.controller("ViewController", function ($scope, $routeParams, $timeout, dataService) {
         $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open');
 
         $scope.productId = $routeParams.productId * 1;
 
@@ -178,6 +179,7 @@
 
     app.controller("LeasingController", function ($scope, $routeParams, $timeout, dataService) {
         $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open');
 
         $scope.productId = $routeParams.productId * 1;
 
