@@ -37,6 +37,8 @@
     app.run(function($rootScope, $http, $location) {
         $rootScope.url = $location.absUrl();
 
+        $rootScope.redirectToView = "/test";
+
         $rootScope.banks = [
             {
                 "title": "Сбербанк",
@@ -126,7 +128,9 @@
         };
     });
 
-    app.controller("IndexController", function ($scope, $location, dataService) {
+    app.controller("IndexController", function ($scope, $rootScope, $location, dataService) {
+        $rootScope.priceInModal = 15;
+
         // получаем данные
         dataService.async().then(function (response) {
             $scope.items = response.data;
@@ -135,9 +139,22 @@
         $scope.view = function (productId) {
             $location.path('/products/view/' + productId);
         };
+
+        $scope.redirect = function(index, price) {
+
+
+            $rootScope.redirectToView = "/#/products/view/" + index;
+            $rootScope.priceInModal = price;
+
+            console.log($scope.priceInModal);
+
+            $('#get_phone_list').modal({"show": true});
+        };
     });
 
     app.controller("ViewController", function ($scope, $routeParams, $timeout, dataService) {
+        $('.modal-backdrop').remove();
+
         $scope.productId = $routeParams.productId * 1;
 
         $scope.isPhone = false;
@@ -160,6 +177,8 @@
     });
 
     app.controller("LeasingController", function ($scope, $routeParams, $timeout, dataService) {
+        $('.modal-backdrop').remove();
+
         $scope.productId = $routeParams.productId * 1;
 
         $scope.price = 0;

@@ -9,8 +9,6 @@
 
             <p><a href="/#/products/view/{{productId}}" target="_blank" class="btn btn-lg btn-link">Ещё фотографии и характеристики</a></p>
 
-            <h3 class="text-center">Стоимость авто: {{ price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></h3>
-
             <div class="well text-center" style="border: 1px solid orange; color: orange; font-size: 12px">
                 <h3 style="color: orange">Ежемесячный платёж:</h3>
                 <h1 style="color: orange">{{getInMouth() | format_price}} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span></h1>
@@ -53,38 +51,6 @@
                     60 месяцев (5 лет)
                 </label>
             </div>
-<!--
-            <h3 style="margin: 0; padding: 0">Первоначальный взнос</h3>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="advance"  value="20" ng-model="advance">
-                    20%
-                </label>
-            </div>
-
-            <div class="radio">
-                <label>
-                    <input type="radio" name="advance"  value="30" ng-model="advance">
-                    30%
-                </label>
-            </div>
-
-
-            <div class="radio">
-                <label>
-                    <input type="radio" name="advance"  value="40" ng-model="advance">
-                    40%
-                </label>
-            </div>
-
-
-            <div class="radio">
-                <label>
-                    <input type="radio" name="advance"  value="50" ng-model="advance">
-                    50%
-                </label>
-            </div>
--->
         </div>
     </div>
 
@@ -100,9 +66,47 @@
         </div>
 
         <div class="col-md-4" style="padding-right: 0">
-            <a href="" class="btn-green-big" data-toggle="modal" data-target="#get_phone">Скачать расчет</a>
+            <a href="" class="btn-green-big" data-toggle="modal" data-target="#get_phone_leasing">Скачать расчет</a>
         </div>
     </div>
 </div>
 
+<!-- list -->
+<div class="modal fade" tabindex="-1" role="dialog" id="get_phone_leasing">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p class="text-right">
+                    <a href="http://atorgi.ru/feedback?outsite=1" target="_blank" class="close"><span aria-hidden="true">&times;</span></a>
+                </p>
+
+                <div>
+                    <h5>Зарегистрируйтесь и скачайте готовый расчет лизинга</h5>
+                    <form method="post" action="http://respectonline.ru/form">
+                        <input type="hidden" name="message" value="{{url}}">
+                        <div class="form-group text-left">
+                            <label>Ваше имя:</label>
+                            <input type="text" name="name" class="form-control" placeholder="Иван" required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label class="text-left">Телефон:</label>
+                            <input type="text" name="phone" class="form-control" placeholder="+7 (999) 999-99-99" required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label class="text-left">Пароль:</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label class="text-left">Повторите пароль:</label>
+                            <input type="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Зарегистрироваться и скачать</button>
+                    </form>
+
+                    <p style="padding-top: 24px; font-size: 80%">На номер телефона придет код подтверждения регистрации</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
