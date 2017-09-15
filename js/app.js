@@ -189,15 +189,16 @@
 
         dataService.async().then(function (response) {
             $scope.element = response.data[$scope.productId];
+            $scope.price = $scope.element.price;
         });
 
 
         $timeout(function () {
-            $scope.price = $scope.element.price;
-        }, 500);
+            console.log($scope.element);
+        }, 1000);
 
 
-        $scope.getInMouth = function (price, period, advance) {
+        $scope.getInMouth = function () {
             return getInMouth($scope.price, $scope.period, $scope.advance);
         };
     });
