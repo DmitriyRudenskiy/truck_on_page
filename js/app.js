@@ -194,12 +194,21 @@
 
 
         $timeout(function () {
-            console.log($scope.element);
+            //
         }, 1000);
 
 
         $scope.getInMouth = function () {
             return getInMouth($scope.price, $scope.period, $scope.advance);
+        };
+
+        $scope.getInMouthForPercent = function(price, percent) {
+            return getInMouth(
+                price,
+                $scope.period,
+                $scope.advance,
+                percent
+            );
         };
     });
 
