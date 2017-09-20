@@ -175,6 +175,18 @@
         $timeout(function () {
             $scope.thumbnail = $scope.element.images[0];
         }, 500);
+
+        $scope.getInMouthForPercent = function(price, percent) {
+
+            console.log('>>> ' + percent);
+
+            return getInMouth(
+                price,
+                60,
+                50,
+                percent
+            );
+        };
     });
 
     app.controller("LeasingController", function ($scope, $routeParams, $timeout, dataService) {
