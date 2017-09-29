@@ -84,7 +84,7 @@
                         <p class="text-left" ng-repeat="(index, item) in banks">{{item.title}}: <span>{{ getInMouthForPercent(price, item.precent) | format_price }} <span class="glyphicon glyphicon-ruble" aria-hidden="true"></span> в месяц</span></p>
                         <div class="form-group text-left">
                             <label class="text-left">Телефон:</label>
-                            <input type="text" name="phone" class="form-control" placeholder="+7 (999) 999-99-99" required>
+                            <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" name="phone" class="form-control" placeholder="+7 (999) 999-99-99" required>
                         </div>
                         <button type="submit" class="btn btn-warning">Зарегистрироваться и скачать</button>
                     </form>
