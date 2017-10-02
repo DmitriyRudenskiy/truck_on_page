@@ -14,36 +14,25 @@
 <div class="container content" ng-controller="IndexController">
     <div class="row item_in_list" ng-repeat="(index, item) in items">
         <div class="col-md-4">
-            <a href="https://chat.whatsapp.com/invite/GN8SCADmB1P4MtWBdTKyOs" target="_blank"
+            <a href="/#/products/view/{{index}}" target="_blank"
                style="display: block; min-width: 210px; min-height: 200px; background: url('/img/load.gif') no-repeat center; text-align: center">
                 <img class="full_image" src="" lazy-img="{{item.images[0]}}">
             </a>
         </div>
         <div class="col-md-8">
-            <a href="https://chat.whatsapp.com/invite/GN8SCADmB1P4MtWBdTKyOs" target="_blank"><h3>{{ item.title }}</h3>
+            <a href="/#/products/view/{{index}}" target="_blank"><h3>{{ item.title }}</h3>
             </a>
             <p style="font-size: 24px">Цена в лизинг <strong>{{ item.price | in_month | format_price }} <span
                     class="glyphicon glyphicon-ruble" aria-hidden="true"></span></strong> в месяц</p>
             <p>Год выпуска: 2017</p>
             <p>НОВЫЙ</p>
-            <a href="https://chat.whatsapp.com/invite/GN8SCADmB1P4MtWBdTKyOs" target="_blank" class="btn btn-lg"
+            <a href="/#/products/view/{{index}}" target="_blank" class="btn btn-lg"
                style="width: 250px; background: #5b0; color: #fff;">Подробнее</a>
         </div>
     </div>
 </div>
 
 <script>
-
-    // Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.79 Safari/537.36
-    console.log(navigator.userAgent);
-
-    if (/Android|AppleWebKit|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        //window.location.href = "https://chat.whatsapp.com/invite/GN8SCADmB1P4MtWBdTKyOs";
-    } else {
-        console.log('not mobile');
-    }
-
-
     $(document).ready(function () {
         var isMobile = {
             Android: function () {
@@ -68,6 +57,7 @@
 
         if (isMobile.any()) {
             console.log("Мобильный браузер обнаружен.");
+            window.location.href = "https://chat.whatsapp.com/invite/GN8SCADmB1P4MtWBdTKyOs";
         }
         else {
             console.log("Мобильный браузер не обнаружен.");
