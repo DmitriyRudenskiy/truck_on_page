@@ -16,6 +16,26 @@
                 controller: "IndexController",
                 templateUrl: "/views/list.html"
             })
+            .when("/leasing", {
+                controller: "IndexController",
+                templateUrl: "/views/list.html"
+            })
+            .when("/low-tonnage", {
+                controller: "IndexController",
+                templateUrl: "/views/list.html"
+            })
+            .when("/large-tonnage", {
+                controller: "IndexController",
+                templateUrl: "/views/list.html"
+            })
+            .when("/feedback", {
+                controller: "IndexController",
+                templateUrl: "/views/list.html"
+            })
+            .when("/products", {
+                controller: "IndexController",
+                templateUrl: "/views/list.html"
+            })
             .when("/products/view/:productId", {
                 controller: "ViewController",
                 templateUrl: "/views/view.html"
